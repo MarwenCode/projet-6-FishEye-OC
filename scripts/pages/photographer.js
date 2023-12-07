@@ -1,4 +1,11 @@
-// Récupérer l'id de l'utilisateur
+// import photographerTemplate from "../templates/photographer.js"
+
+// Récupérer l'id de l'utilisateur  
+
+// photographer.js
+import { photographerTemplate } from "../templates/photographer.js";
+
+// Récupérer l'id de l'utilisateur  
 const urlParams = new URLSearchParams(window.location.search);
 const userId = urlParams.get('id');
 console.log('UserID:', userId);
@@ -13,19 +20,20 @@ const fetchDataProfile = async () => {
     console.log('Photographe trouvé:', photographerById);
 
     if (photographerById) {
-        // Afficher les données du photographe
-        console.log('Données du photographe:', photographerById);
+        // Afficher les données du photographe avec le template
+        const photographerCard = photographerTemplate(photographerById);
+      
+        
+        // Ajouter la carte du photographe au DOM
+        const profileContainer = document.querySelector(".photograph-header");
+    
+        profileContainer.appendChild(photographerCard.getUserCardDOM());
     } else {
         console.error("Aucun photographe trouvé avec l'ID : ", userId);
     }
-
-    // Retourner les données du photographe (si besoin)
-    return photographerById;
 };
 
-
 fetchDataProfile();
-
 
 
 

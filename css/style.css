@@ -42,6 +42,7 @@ text-decoration: none;
     gap: 70px;
     margin-top: 6rem;
     margin-bottom: 3rem;
+    cursor: pointer;
 }
 
 .photographer_section article {

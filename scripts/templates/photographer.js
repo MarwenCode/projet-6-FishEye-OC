@@ -1,32 +1,40 @@
-// function photographerTemplate(data) {
-//     const { name, portrait } = data;
+export function photographerTemplate(data) {
+  const { name, portrait, country, city, tagline } = data;
 
-//     const picture = `assets/photographers/${portrait}`;
+  const picture = `assets/photographers/${portrait}`;
 
-//     function getUserCardDOM() {
-//         const article = document.createElement( 'article' );
-//         const img = document.createElement( 'img' );
-//         img.setAttribute("src", picture)
-//         const h2 = document.createElement( 'h2' );
-//         h2.textContent = name;
-//         article.appendChild(img);
-//         article.appendChild(h2);
-//         return (article);
-//     }
-//     return { name, picture, getUserCardDOM }
-// }
+  function getUserCardDOM() {
+    const article = document.createElement("article");
+    const img = document.createElement("img");
+    img.classList.add("pic");
+    img.setAttribute("src", picture);
+    const h2 = document.createElement("h2");
+    const h4 = document.createElement("h4");
+    const h5 = document.createElement("h5");
+    const p = document.createElement("p");
+    const btn = document.querySelector(".contact_button");
 
+    h2.textContent = name;
+    h4.textContent = city;
+    h5.textContent = country;
+    p.textContent = tagline;
 
+    const leftSide = document.createElement("div");
+    leftSide.classList.add("left-side");
+    leftSide.appendChild(h2);
 
+    const location = document.createElement("div");
+    location.classList.add("location");
+    location.appendChild(h4);
 
-  
-  
+    location.appendChild(h5);
+    leftSide.appendChild(location);
+    leftSide.appendChild(p);
+    article.appendChild(leftSide);
+    article.appendChild(btn);
+    article.appendChild(img);
 
-
-  
-
-
-    // document.querySelector("photograph-name").textContent = data.name;
-    // document.querySelector("photograph-location").textContent = `${data.city}, ${data.country}`;
-    // ... Autres informations
-
+    return article;
+  }
+  return { name, picture, getUserCardDOM };
+}
