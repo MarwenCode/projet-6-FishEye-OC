@@ -16,7 +16,7 @@ export class MediaFactory {
     const imagePath = `../../assets/photos/${this.photographerID}/${this.media.image}`;
     console.log("Image Path:", imagePath);
     return `
-      <div>
+      <div class="media-element">
         <div>
           <img src="${imagePath}">
         </div>
@@ -31,7 +31,7 @@ export class MediaFactory {
   renderVideo() {
     const videoPath = `../../assets/photos/${this.photographerID}/${this.media.video}`;
     return `
-      <div>
+       <div class="media-element">
         <div>
           <video src="${videoPath}" controls></video>
         </div>

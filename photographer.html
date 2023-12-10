@@ -20,8 +20,54 @@
         </article>
         <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
       </div>
-      <div class="photographe_medias"></div>
+       <!-- Section 2 : Filtre -->
+
+       <section class="filtre">
+        <p class="filtre-label" id="filtre-label">Trier par</p>
+        <div
+          class="filtre-liste"
+          role="menubar"
+          aria-controls="dropdown"
+          aria-labelledby="filtre-label"
+          aria-haspopup="listbox"
+          aria-expanded="false"
+        >
+          <button
+            class="filtre-liste-active"
+            aria-selected="true"
+           
+          >
+            <div class="trie-actuel">Popularité</div>
+            <i class="fa fa-chevron-down"></i>
+          </button>
+          <button
+            class="filtre-liste-inactive option1"
+            aria-selected="false"
+           
+          >
+            Date
+          </button>
+          <button
+            class="filtre-liste-inactive"
+            aria-selected="false"
+           
+          >
+            Titre
+          </button>
+        </div>
+      </section>
+      
+      
+        
+    
+      <div class="photographe_medias">
+
+      </div>
     </main>
+
+
+
+
     
     <div id="contact_modal">
 			<div class="modal">
