@@ -1,3 +1,5 @@
+import { MediaFactory } from "./mediaFactory.js";
+
 export function photographerTemplate(data) {
   const { name, portrait, country, city, tagline } = data;
 
@@ -36,5 +38,45 @@ export function photographerTemplate(data) {
 
     return article;
   }
-  return { name, picture, getUserCardDOM };
+
+//   const displayMedia = (photographerMedia, mediaContainer,photographerName) => {
+
+
+//     // photographerMedia.forEach((media) => {
+//     //     const imagePath = `assets/Sample Photos/${}/${media.image}  alt="${media.title}`;
+//     //   mediaContainer.innerHTML += `
+//     //     <div>
+//     //       <div>
+//     //       <img src="${imagePath}" >
+//     //       </div>
+//     //       <div>
+//     //         <h2>${media.title}</h2>
+//     //         <button class="btn-likes">Like</button>
+//     //       </div>
+//     //     </div>
+//     //   `;
+//     // });
+
+//     photographerMedia.forEach((media) => {
+//         const mediaFactory = new MediaFactory(media, name);
+//         mediaContainer.innerHTML += mediaFactory.renderMedia();
+//       });
+
+
+//   };
+
+const displayMedia = (photographerMedia, mediaContainer) => {
+  photographerMedia.forEach((media) => {
+    const mediaFactory = new MediaFactory(media, media.photographerId);
+    mediaContainer.innerHTML += mediaFactory.renderMedia();
+  });
+};
+
+
+
+
+  return { name, picture, getUserCardDOM, displayMedia };
 }
+
+
+
