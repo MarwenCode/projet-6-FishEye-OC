@@ -4,9 +4,9 @@
 
 
 main {
-    margin: 50px ;
-   
-  
+  margin: 50px;
+
+
 }
 
 .photograph-header {
@@ -48,6 +48,7 @@ article {
 
   color: rgba(144, 28, 28, 1);
 }
+
 .location h4,
 h5 {
   font-size: 24px;
@@ -75,63 +76,106 @@ h5 {
   border-radius: 50%;
   object-fit: cover;
   /* width: 200px; */
-/* height: 200px; */
+  /* height: 200px; */
 
 }
 
 .left-side p {
-    color: #525252;
+  color: #525252;
 
-font-family: DM Sans;
-font-size: 18px;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
+  font-family: DM Sans;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 
 /* photgraphe media  */
 
 
 .photographe_medias {
- 
+
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around; 
-  padding: 10px; 
+  justify-content: space-around;
+  padding: 10px;
 }
 
 .media-element {
-  width: calc(33.33% - 20px); 
-  margin: 10px; 
+  width: calc(33.33% - 20px);
+  margin: 10px;
   font-size: medium;
   display: flex;
-  flex-direction: column; 
-  align-items: center; 
-  text-align: center; 
-  
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
 }
 
 
 .media-element img,
 .media-element video {
- 
+
   /* max-width: 50%; 
   aspect-ratio: 8/5; */
 
   width: 350px;
-height: 300px;
-flex-shrink: 0;
-object-fit: cover;
+  height: 300px;
+  flex-shrink: 0;
+  object-fit: cover;
 }
 
-.media-element h2 {
-  margin-top: 10px; 
-}
-
-.btn-likes {
+.info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-top: 10px;
+  text-align: left;
+  width: 75%;
 }
+
+.info h2 {
+  margin-left: -8px;
+
+}
+
+.likes {
+  display: flex;
+/* align-items: center;
+justify-content: center; */
+
+margin-right: -10px;
+justify-content: space-around;
+width: 15%;
+
+
+}
+
+.fas.fa-heart {
+ 
+  color: #901c1c;
+  width: 21px;
+  height: 24px;
+
+
+}
+
+.likes p {
+ 
+  color: #901C1C;
+font-family: DM Sans;
+font-size: 19px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+ 
+  
+ 
+
+}
+
+
 
 
 
@@ -140,11 +184,13 @@ object-fit: cover;
   position: relative;
   margin-bottom: 58px;
 }
+
 .filtre-label {
   color: black;
   font-weight: 700;
   padding-top: 9px;
 }
+
 .filtre-liste {
   position: absolute;
   display: flex;
@@ -162,12 +208,14 @@ object-fit: cover;
   cursor: pointer;
   height: auto;
 }
+
 .filtre-liste button {
   background-color: #901c1c;
   color: white;
   border: none;
   cursor: pointer;
 }
+
 .filtre-liste-active {
   display: flex;
   width: 100%;
@@ -181,13 +229,16 @@ object-fit: cover;
   width: 100%;
   padding: 10px;
 }
+
 .filtre-liste-inactive:hover {
   background-color: white;
   color: #901c1c;
 }
+
 .filtre-liste .ouverture {
   display: block;
 }
+
 .filtre-liste .option1 {
   border-top: white solid 1px;
   border-bottom: white solid 1px;

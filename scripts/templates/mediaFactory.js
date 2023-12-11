@@ -20,9 +20,13 @@ export class MediaFactory {
         <div>
           <img src="${imagePath}">
         </div>
-        <div>
+        <div class="info">
           <h2>${this.media.title}</h2>
-          <button class="btn-likes">Like</button>
+          <div class="likes">
+          <p>${this.media.likes}</p>
+          <span><i class="fas fa-heart" aria-label="likes"></i></span>
+          </div>
+        
         </div>
       </div>
     `;
@@ -35,9 +39,13 @@ export class MediaFactory {
         <div>
           <video src="${videoPath}" controls></video>
         </div>
-        <div>
+        <div class="info">
           <h2>${this.media.title}</h2>
-          <button class="btn-likes">Like</button>
+          <div class="likes">
+          <p>${this.media.likes}</p>
+          <span><i class="fas fa-heart" aria-label="likes"></i></span>
+          </div>
+        
         </div>
       </div>
     `;
