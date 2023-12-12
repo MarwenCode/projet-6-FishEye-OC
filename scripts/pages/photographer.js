@@ -1,7 +1,7 @@
 // Récupérer l'id de l'utilisateur
 
 // photographer.js
-import { MediaFactory } from "../templates/mediaFactory.js"
+import { MediaFactory } from "../templates/mediaFactory.js";
 import { photographerTemplate } from "../templates/photographer.js";
 
 // Récupérer l'id de l'utilisateur
@@ -15,7 +15,9 @@ const fetchDataProfile = async () => {
   console.log("Tous les photographes:", jsonResponse.photographers);
 
   // Trouver le photographe correspondant à l'id
-  const photographerById = jsonResponse.photographers.find( (photographer) => photographer.id === parseInt(userId));
+  const photographerById = jsonResponse.photographers.find(
+    (photographer) => photographer.id === parseInt(userId)
+  );
   console.log("Photographe trouvé:", photographerById);
 
   if (photographerById) {
@@ -27,57 +29,26 @@ const fetchDataProfile = async () => {
 
     profileContainer.appendChild(photographerCard.getUserCardDOM());
 
-
     // Afficher les médias du photographe
     const mediaContainer = document.querySelector(".photographe_medias");
-  const photographerMedia = jsonResponse.media.filter( (media) => media.photographerId == userId );
+    const encartLikes = document.querySelector(".encartLikes");
 
-  console.log(photographerMedia);
+    const photographerMedia = jsonResponse.media.filter( (media) => media.photographerId == userId);
 
- 
-  // Append the mediaContainer to the DOM after displaying all media
+    console.log(photographerMedia);
+
+    // Append the mediaContainer to the DOM after displaying all media
 
     // Clear the container before appending new content
-    mediaContainer.innerHTML = '';
-    
-    // Display media for the photographer
-    // photographerCard.displayMedia(photographerMedia, mediaContainer);
+    mediaContainer.innerHTML = "";
 
-    photographerCard.displayMedia(photographerMedia, mediaContainer);
+    // Get the photographer price
+    const photographerPrice = photographerById.price;
 
-     // Display media for the photographer using MediaFactory
-    //  photographerMedia.forEach((media) => {
-    //     const mediaFactory = new MediaFactory(media, photographerCard.name);
-    //     mediaContainer.innerHTML += mediaFactory.renderMedia();
-    //   });
-      
-
-
-
+    photographerCard.displayMedia(photographerMedia, mediaContainer,encartLikes,photographerPrice);
   } else {
     console.error("Aucun photographe trouvé avec l'ID : ", userId);
   }
-
-
-
-  
 };
 
 fetchDataProfile();
-
-// const dislayMedia = (photographerMedia) => {
-//   const mediaContainer = document.querySelector(".photographe_medias");
-//   photographerMedia.forEach((media) => {
-//     const mediaCard = (media.innerHTML = `
-//         <article>
-//         <div class="top">  <img /> </div>
-//         <div class="carte_infos">
-//         <h2 class="carte_titre">${media.title}</h2>
-//         <button class="btn-likes> </button>
-//       </div>
-//       </article>
-           
-        
-//         `);
-//   });
-// };

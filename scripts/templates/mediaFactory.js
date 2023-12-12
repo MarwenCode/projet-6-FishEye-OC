@@ -50,6 +50,20 @@ export class MediaFactory {
       </div>
     `;
   }
+
+  renderEncart(photographerPrice) {
+    const totalLikes = this.media.reduce((acc, mediaItem) => acc + mediaItem.likes, 0);
+    console.log(totalLikes);
+  
+    return `
+      <div class="encart">
+        <h2>Price: $${photographerPrice}</h2>
+        <div class="likes">
+          <p>Total Likes: ${totalLikes}</p>
+          <span><i class="fas fa-heart" aria-label="likes"></i></span>
+        </div>
+      </div>
+    `;
+  }
+  
 }
-
-
