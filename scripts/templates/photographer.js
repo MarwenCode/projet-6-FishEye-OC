@@ -5,6 +5,8 @@ export function photographerTemplate(data) {
 
   const picture = `assets/photographers/${portrait}`;
 
+  const btn = document.querySelector(".contact_button");
+
   function getUserCardDOM() {
     const article = document.createElement("article");
     const img = document.createElement("img");
@@ -14,7 +16,7 @@ export function photographerTemplate(data) {
     const h4 = document.createElement("h4");
     const h5 = document.createElement("h5");
     const p = document.createElement("p");
-    const btn = document.querySelector(".contact_button");
+    
 
     h2.textContent = name;
     h4.textContent = city;
@@ -53,6 +55,33 @@ export function photographerTemplate(data) {
     
 
   };
+
+
+  //contact form
+
+// launch modal form
+const modalContact = document.getElementById("contact_modal")
+console.log(modalContact)
+
+const  displayModal = () => {
+  modalContact.style.display = "block";
+
+  console.log(btn)
+}
+
+btn.addEventListener("click", displayModal)
+
+const closeModal = () => {
+  modalContact.style.display = "none"
+}
+
+const close = document.querySelector(".close")
+close.addEventListener("click", closeModal)
+
+
+
+
+
 
   return { name, picture, getUserCardDOM, displayMedia };
 }

@@ -57,11 +57,13 @@ export class MediaFactory {
   
     return `
       <div class="encart">
-        <h2>Price: $${photographerPrice}</h2>
-        <div class="likes">
-          <p>Total Likes: ${totalLikes}</p>
+       
+        <div class="likestotal">
+          <p class="totalLikes">${totalLikes}</p>
           <span><i class="fas fa-heart" aria-label="likes"></i></span>
+         
         </div>
+        <h2>${photographerPrice}€ / jour</h2>
       </div>
     `;
   }

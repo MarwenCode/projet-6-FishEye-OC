@@ -25,7 +25,7 @@
           <img src="" alt="">
         
         </article>
-        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+        <button class="contact_button">Contactez-moi</button>
       </div>
        <!-- Section 2 : Filtre -->
 
@@ -64,20 +64,20 @@
         </div>
       </section>
       
-      
+      <div class="encartLikes"></div>
         
     
       <div class="photographe_medias">
 
       </div>
 
-      <div class="encartLikes"></div>
+    
     </main>
 
 
 
 
-    
+<!--     
     <div id="contact_modal">
 			<div class="modal">
 				<header>
@@ -92,7 +92,55 @@
           <button class="contact_button">Envoyer</button>
 				</form>
 			</div>
-		</div>
+		</div> -->
+
+  <!-- Section 5: modal -->
+  <div id="contact_modal">
+    <div class="modal">
+      <header>
+        <h2>Contactez-moi</h2>
+        <img  class="close" src="assets/icons/close.svg" />
+      </header>
+    <form>
+      <div >
+        <label class="modal-type" for="prenom">Prénom</label>
+        <input class="modal-input" type="text" id="prenom" />
+
+      </div>
+
+      <div>
+
+        <label class="modal-type" for="prenom">Prénom</label>
+        <input class="modal-input" type="text" id="prenom" />
+
+      </div>
+    
+      <div>
+        <label class="modal-type" for="nom">Nom</label>
+        <input class="modal-input" type="text" id="nom" />
+
+      </div>
+    
+      <div>
+        <label class="modal-type" for="email">Email</label>
+        <input class="modal-input" type="email" id="email" />
+
+      </div>
+  
+      <div>
+        <label class="modal-type" for="message">Votre message</label>
+      <textarea name="message" ></textarea>
+      </div>
+      
+    
+      
+      <!-- <input class="modal-submit" type="submit" value="Envoyer" /> -->
+       
+      <button class="contact-button">Envoyer</button>
+    </form>
+  </div>
+</section>
+
     <script type="module" src="/scripts/pages/photographer.js"></script>
     <script type="module"  src="/scripts/utils/contactForm.js"></script>
   </body>
