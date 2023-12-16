@@ -1,7 +1,9 @@
 #contact_modal {
   display: none;
 
-  transform: translate(0%, -200%);
+  transform: translate(0%, -170%);
+
+
   z-index: 1;
 
 
@@ -37,6 +39,7 @@ article {
   /* flex-direction: block; */
   margin-top: 10px;
   width: 100%;
+
 
   justify-content: space-between;
 }
@@ -137,6 +140,21 @@ h5 {
   height: 300px;
   flex-shrink: 0;
   object-fit: cover;
+  cursor: pointer;
+}
+
+/* active */
+.media-element img.active,
+.media-element video.active {
+
+  /* max-width: 50%; 
+  aspect-ratio: 8/5; */
+
+  width: 350px;
+  height: 300px;
+  flex-shrink: 0;
+  object-fit: cover;
+  cursor: pointer;
 }
 
 .info {
@@ -357,7 +375,7 @@ line-height: normal;
 .modal {
   border-radius: 5px;
   background-color: #db8876;
-  width: 50%;
+  width: 40%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -412,4 +430,22 @@ form textarea {
   width: 100%;
   height: 100px;
   resize: none;
+}
+
+.contact-button {
+  background-color: #901C1C;
+  border-radius: 5px;
+  width: 170px;
+height: 69px;
+flex-shrink: 0;
+color: #FFF;
+
+cursor: pointer;
+
+text-align: center;
+font-family: DM Sans;
+font-size: 18px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
 }

@@ -33,7 +33,9 @@ const fetchDataProfile = async () => {
     const mediaContainer = document.querySelector(".photographe_medias");
     const encartLikes = document.querySelector(".encartLikes");
 
-    const photographerMedia = jsonResponse.media.filter( (media) => media.photographerId == userId);
+    const photographerMedia = jsonResponse.media.filter(
+      (media) => media.photographerId == userId
+    );
 
     console.log(photographerMedia);
 
@@ -45,7 +47,21 @@ const fetchDataProfile = async () => {
     // Get the photographer price
     const photographerPrice = photographerById.price;
 
-    photographerCard.displayMedia(photographerMedia, mediaContainer,encartLikes,photographerPrice);
+    photographerCard.displayMedia(
+      photographerMedia,
+      mediaContainer,
+      encartLikes,
+      photographerPrice
+    );
+
+    // photographerMedia.forEach((element, index) => {
+    //   console.log("Element at index", index, ":", element);
+
+    //   // Your existing code
+    //   // element.addEventListener("click", () => {
+    //   //   showLightBox(index);
+    //   // });
+    // });
   } else {
     console.error("Aucun photographe trouvé avec l'ID : ", userId);
   }
