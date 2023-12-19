@@ -1,4 +1,5 @@
 import { MediaFactory } from "./mediaFactory.js";
+import { createLightBox } from "./lightBox.js";
 
 export function photographerTemplate(data) {
   const { name, portrait, country, city, tagline } = data;
@@ -40,15 +41,11 @@ export function photographerTemplate(data) {
     return article;
   }
 
-  const displayMedia = (
-    photographerMedia,
-    mediaContainer,
-    encartLikesContainer,
-    photographerPrice
-  ) => {
+  const displayMedia = (photographerMedia,mediaContainer,encartLikesContainer,photographerPrice) => {
     photographerMedia.forEach((media) => {
       const mediaFactory = new MediaFactory(media, media.photographerId);
       mediaContainer.innerHTML += mediaFactory.renderMedia();
+      console.log(mediaContainer)
     });
 
     const encartLikes = new MediaFactory(photographerMedia);
@@ -62,13 +59,14 @@ export function photographerTemplate(data) {
       console.log(clickedElement.parentNode.children);
 
       if (clickedElement) {
-        const index = Array.from(clickedElement.parentNode.children).indexOf(
-          clickedElement
-        );
+        const index = Array.from(clickedElement.parentNode.children).indexOf(clickedElement);
         showLightBox(index, photographerMedia);
       }
     });
   };
+
+
+
 
   //contact form
   const form = document.querySelector("form");
@@ -123,103 +121,55 @@ export function photographerTemplate(data) {
 
   submitForm();
 
+
+
+
   ///show LightBox
+///show LightBox
+const showLightBox = (index, photographerMedia) => {
+  // Get the clicked media
+  const clickedMedia = photographerMedia[index];
 
-  const showLightBox = (index, photographerMedia) => {
-    // Get the clicked media
-    const clickedMedia = photographerMedia[index];
+  console.log("User clicked on the image:", clickedMedia);
+ 
 
-    console.log("User clicked on the image:", clickedMedia);
+  createLightBox(clickedMedia, photographerMedia, index);
+};
 
-    createLightBox(clickedMedia);
 
-    // You can add more functionality here, such as opening a modal or displaying the image in a lightbox
-  };
 
   return { name, picture, getUserCardDOM, displayMedia, showLightBox };
 }
 
 //create LightBox
 
-const createLightBox = (clickedMedia) => {
-  // Create modal elements
-  let imgCloseBtn = document.createElement("img");
-  let modalContact = document.createElement("div");
-  let modal = document.createElement("div");
-  let header = document.createElement("header");
-  let content = document.createElement("div")
-  let media = document.createElement("img");
-
-  let nextArrow = document.createElement("span");
-  let backArrow = document.createElement("span");
-
-  // Add classes to modal elements
-  modalContact.classList.add("modal_contact");
-  content.classList.add("content")
-  modal.classList.add("modal");
-  media.classList.add("media");
-
-  nextArrow.classList.add("nextArrow");
-  backArrow.classList.add("backArrow");
-
-  media.src = `../../assets/photos/${clickedMedia.photographerId}/${clickedMedia.image}`;
-  console.log(media.src);
-  header.classList.add("header");
-  imgCloseBtn.classList.add("close");
-
-  // Set styles for modalContact
-  modalContact.style.position = "fixed";
-  modalContact.style.top = "0";
-  modalContact.style.left = "0";
-  modalContact.style.width = "100%";
-  modalContact.style.height = "100%";
-  modalContact.style.backgroundColor = "rgba(255, 255, 255, 0.9)";
 
 
-  // Set styles for modal
-  modal.style.width = "550px";
-  modal.style.height = "550px";
-  modal.style.margin = "auto";
-  // modal.style.marginTop = "20px";
-  modal.style.marginBottom = "60px";
-  // modal.style.backgroundColor = "red";
-  modal.style.backgroundColor = "white";
-  media.style.width ="450px";
-  media.style.height ="100%";
-
-  // Set styles for close button
-  // Set styles for close button
-  imgCloseBtn.src = "assets/icons/close.svg";
-  imgCloseBtn.alt = "Close";
-  imgCloseBtn.style.cursor = "pointer";
-  imgCloseBtn.style.position = "absolute";
-  imgCloseBtn.style.top = "10px"; // Adjust the top position if needed
-  imgCloseBtn.style.right = "10px"; // Adjust the right position if needed
-  imgCloseBtn.style.backgroundColor = "red"; // Change the background color to red
 
 
-  //arrows
-  // Set styles for arrows
-  nextArrow.textContent = "➡️";
-  backArrow.textContent = "⬅️";
-  nextArrow.style.position = "absolute";
-  // nextArrow.style.top = "50%";
-  nextArrow.style.right = "450px";
-  backArrow.style.position = "absolute";
-  // backArrow.style.top = "50%";
-  backArrow.style.left = "180px";
-  // Append modal elements
-  header.append(imgCloseBtn);
-  content.append(media, nextArrow, backArrow)
-  modal.append(content);
-  modalContact.append(header, modal);
 
-  // Show the lightbox
-  document.body.appendChild(modalContact);
+// let photos = [..., ..., ...]
 
-  // Add event listener to close the lightbox when the close button is clicked
-  imgCloseBtn.addEventListener("click", () => {
-    modalContact.style.display = "none";
-  });
-};
 
+// let currentPhoto = 0
+
+// function next() {
+//   currentPhoto += 1
+// }
+
+// function displayImg() {
+//   const img = modal.querySelector('img')
+// img.setAttribute('src', photos[currentImg])
+
+
+// <dialog>
+//   <h2></h2>
+//   <img>
+//   <button></button>
+//   <button></button>
+// </dialog>
+
+
+// dialog {
+//   display  : grid;
+// }

@@ -9,7 +9,7 @@ const urlParams = new URLSearchParams(window.location.search);
 const userId = urlParams.get("id");
 console.log("UserID:", userId);
 
-const fetchDataProfile = async () => {
+ const fetchDataProfile = async () => {
   const response = await fetch("data/photographers.json");
   const jsonResponse = await response.json();
   console.log("Tous les photographes:", jsonResponse.photographers);
@@ -38,6 +38,7 @@ const fetchDataProfile = async () => {
     );
 
     console.log(photographerMedia);
+    console.log(mediaContainer);
 
     // Append the mediaContainer to the DOM after displaying all media
 
@@ -54,17 +55,12 @@ const fetchDataProfile = async () => {
       photographerPrice
     );
 
-    // photographerMedia.forEach((element, index) => {
-    //   console.log("Element at index", index, ":", element);
 
-    //   // Your existing code
-    //   // element.addEventListener("click", () => {
-    //   //   showLightBox(index);
-    //   // });
-    // });
   } else {
     console.error("Aucun photographe trouvé avec l'ID : ", userId);
   }
 };
 
 fetchDataProfile();
+
+
