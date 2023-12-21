@@ -32,6 +32,7 @@ console.log("UserID:", userId);
     // Afficher les médias du photographe
     const mediaContainer = document.querySelector(".photographe_medias");
     const encartLikes = document.querySelector(".encartLikes");
+   
 
     const photographerMedia = jsonResponse.media.filter(
       (media) => media.photographerId == userId
@@ -52,8 +53,20 @@ console.log("UserID:", userId);
       photographerMedia,
       mediaContainer,
       encartLikes,
-      photographerPrice
+      photographerPrice,
+      
     );
+
+
+    //add likes
+  //   const likeBtn = document.querySelector(".heart-button")
+  //  likeBtn.addEventListener("click", addLikes);
+
+  //  const addLikes = () => {
+  //   const indexMedia =
+  //  }
+
+   
 
 
   } else {

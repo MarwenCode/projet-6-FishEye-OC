@@ -23,17 +23,18 @@ export class MediaFactory {
         <div class="info">
           <h2>${this.media.title}</h2>
           <div class="likes">
-          <p>${this.media.likes}</p>
-          <span><i class="fas fa-heart" aria-label="likes"></i></span>
+            <p>${this.media.likes}</p>
+            <span><i class="heart-button fas fa-heart" aria-label="likes"></i></span>
           </div>
-        
         </div>
       </div>
     `;
   }
+  
 
   renderVideo() {
     const videoPath = `../../assets/photos/${this.photographerID}/${this.media.video}`;
+    console.log("video Path:", videoPath);
     return `
        <div class="media-element">
         <div>

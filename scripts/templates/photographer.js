@@ -41,11 +41,16 @@ export function photographerTemplate(data) {
     return article;
   }
 
-  const displayMedia = (photographerMedia,mediaContainer,encartLikesContainer,photographerPrice) => {
+  const displayMedia = (
+    photographerMedia,
+    mediaContainer,
+    encartLikesContainer,
+    photographerPrice
+  ) => {
     photographerMedia.forEach((media) => {
       const mediaFactory = new MediaFactory(media, media.photographerId);
       mediaContainer.innerHTML += mediaFactory.renderMedia();
-      console.log(mediaContainer)
+      console.log(mediaContainer);
     });
 
     const encartLikes = new MediaFactory(photographerMedia);
@@ -56,17 +61,30 @@ export function photographerTemplate(data) {
     mediaContainer.addEventListener("click", (event) => {
       const clickedElement = event.target.closest(".media-element");
       console.log(clickedElement);
-      console.log(clickedElement.parentNode.children);
 
       if (clickedElement) {
-        const index = Array.from(clickedElement.parentNode.children).indexOf(clickedElement);
+        const index = Array.from(clickedElement.parentNode.children).indexOf(
+          clickedElement
+        );
         showLightBox(index, photographerMedia);
       }
     });
+
+    // Add the event listener for like button
+    const likeButtons = document.querySelectorAll(".heart-button");
+    likeButtons.forEach((button) =>
+      button.addEventListener("click", (event) => {
+        event.stopPropagation(); // Stop propagation to prevent the click event from reaching the mediaContainer
+        const likedMedia = event.target;
+        console.log(button);
+        console.log(likedMedia);
+        if (likedMedia) {
+          addLikes(likedMedia);
+          console.log(likedMedia);
+        }
+      })
+    );
   };
-
-
-
 
   //contact form
   const form = document.querySelector("form");
@@ -121,55 +139,66 @@ export function photographerTemplate(data) {
 
   submitForm();
 
-
-
-
   ///show LightBox
-///show LightBox
-const showLightBox = (index, photographerMedia) => {
-  // Get the clicked media
-  const clickedMedia = photographerMedia[index];
+  ///show LightBox
+  const showLightBox = (index, photographerMedia) => {
+    // Get the clicked media
+    const clickedMedia = photographerMedia[index];
 
-  console.log("User clicked on the image:", clickedMedia);
- 
+    console.log("User clicked on the image:", clickedMedia);
 
-  createLightBox(clickedMedia, photographerMedia, index);
-};
-
-
+    createLightBox(clickedMedia, photographerMedia, index);
+  };
 
   return { name, picture, getUserCardDOM, displayMedia, showLightBox };
 }
 
-//create LightBox
+// Function to add likes
+// Function to add likes
+// Function to add likes
+const addLikes = (likeBtn) => {
+  // Find the corresponding media item
+  const mediaElement = likeBtn.parentNode.parentNode; // Adjust the selector based on your HTML structure
+  const likesContainer = mediaElement.querySelector(".likes p");
 
+  // Check if the user has already liked the photo
+  const alreadyLiked = mediaElement.classList.contains("liked");
 
+  if (!alreadyLiked) {
+    // Increment the likes count and update the UI
+    const currentLikes = parseInt(likesContainer.textContent);
+    likesContainer.textContent = currentLikes + 1;
 
+    // Add a class to indicate that the user has liked the photo
+    mediaElement.classList.add("liked");
+  } else {
+    // Decrement the likes count and update the UI
+    const currentLikes = parseInt(likesContainer.textContent);
+    likesContainer.textContent = currentLikes - 1;
 
+    // Remove the class to indicate that the user has unliked the photo
+    mediaElement.classList.remove("liked");
+  }
 
+  // Update the total likes in the encartLikes container
+  allLikesEncart();
+};
 
-// let photos = [..., ..., ...]
+// Function to update the total likes in the encartLikes container
+const allLikesEncart = () => {
+  const encartLikesContainer = document.querySelector(".encartLikes"); // Adjust the selector based on your HTML structure
+  const likeButtons = document.querySelectorAll(".heart-button");
 
+  // Calculate the total likes
+  const totalLikes = Array.from(likeButtons).reduce((acc, button) => {
+    const mediaElement = button.parentNode.parentNode; // Adjust the selector based on your HTML structure
+    const likesContainer = mediaElement.querySelector(".likes p");
+    return acc + parseInt(likesContainer.textContent);
+  }, 0);
 
-// let currentPhoto = 0
-
-// function next() {
-//   currentPhoto += 1
-// }
-
-// function displayImg() {
-//   const img = modal.querySelector('img')
-// img.setAttribute('src', photos[currentImg])
-
-
-// <dialog>
-//   <h2></h2>
-//   <img>
-//   <button></button>
-//   <button></button>
-// </dialog>
-
-
-// dialog {
-//   display  : grid;
-// }
+  // Update the total likes in the encartLikes container
+  const totalLikesElement = encartLikesContainer.querySelector(".totalLikes");
+  if (totalLikesElement) {
+    totalLikesElement.textContent = totalLikes;
+  }
+};
