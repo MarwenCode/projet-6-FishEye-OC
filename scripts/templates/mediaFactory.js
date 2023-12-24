@@ -14,39 +14,35 @@ export class MediaFactory {
 
   renderImage() {
     const imagePath = `../../assets/photos/${this.photographerID}/${this.media.image}`;
-    console.log("Image Path:", imagePath);
     return `
       <div class="media-element">
         <div>
-          <img src="${imagePath}">
+          <img src="${imagePath}" alt="${this.media.title}" aria-label="${this.media.title}">
         </div>
         <div class="info">
           <h2>${this.media.title}</h2>
           <div class="likes">
             <p>${this.media.likes}</p>
-            <span><i class="heart-button fas fa-heart" aria-label="likes"></i></span>
+            <span role="img" aria-label="likes"><i class="heart-button fas fa-heart"></i></span>
           </div>
         </div>
       </div>
     `;
   }
-  
 
   renderVideo() {
     const videoPath = `../../assets/photos/${this.photographerID}/${this.media.video}`;
-    console.log("video Path:", videoPath);
     return `
        <div class="media-element">
         <div>
-          <video src="${videoPath}" controls></video>
+          <video src="${videoPath}" controls aria-label="${this.media.title}"></video>
         </div>
         <div class="info">
           <h2>${this.media.title}</h2>
           <div class="likes">
-          <p>${this.media.likes}</p>
-          <span><i class="fas fa-heart" aria-label="likes"></i></span>
+            <p>${this.media.likes}</p>
+            <span role="img" aria-label="likes"><i class="fas fa-heart"></i></span>
           </div>
-        
         </div>
       </div>
     `;
@@ -54,19 +50,15 @@ export class MediaFactory {
 
   renderEncart(photographerPrice) {
     const totalLikes = this.media.reduce((acc, mediaItem) => acc + mediaItem.likes, 0);
-    console.log(totalLikes);
   
     return `
-      <div class="encart">
-       
+      <div class="encart" role="region" aria-label="Informations sur les likes et le prix du photographe">
         <div class="likestotal">
-          <p class="totalLikes">${totalLikes}</p>
-          <span><i class="fas fa-heart" aria-label="likes"></i></span>
-         
+          <p class="totalLikes" aria-live="polite">${totalLikes}</p>
+          <span role="img" aria-label="likes"><i class="fas fa-heart"></i></span>
         </div>
         <h2>${photographerPrice}€ / jour</h2>
       </div>
     `;
   }
-  
 }

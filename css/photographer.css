@@ -1,13 +1,139 @@
 #contact_modal {
   display: none;
 
-  transform: translate(0%, -267%);
+  /* transform: translate(0%, -320%); */
+  transform: translate(0%, -280%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position:fixed; 
+  width: 60%;
+  height: 96vh;
+  z-index: 1000;
+  border:none;
 
 
-  z-index: 1;
+  /* transform: translate(-50%, -50%);  */
+
+  /* margin-top: -150px; */
+
+
+  /* background-color: rgba(255, 255, 255, 0.9); */
+  /* Add other styles as needed */
 
 
 
+  /* position:fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); */
+  /* width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.9);
+  z-index: 1000; 
+  display: flex;
+  align-items: center;
+  justify-content: center; */
+
+
+}
+
+
+.modal {
+  border-radius: 5px;
+  background-color: #db8876;
+  width: 60%;
+  height: 100vh;
+  border: none;
+
+  position:fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  margin-top: -10px;
+  /* margin: auto; */
+
+
+
+  /* width: 30%;
+  background-color: #db8876;
+  border-radius: 5px;
+  padding: 10px; */
+
+
+  height: auto;
+  max-height: 100%; /* Set a maximum height to prevent overflow */
+  /* overflow-y: auto; */
+}
+
+.modal header {
+  justify-content: space-between;
+  width: 100%;
+ 
+}
+
+.modal header img {
+  cursor: pointer;
+}
+
+.modal header h2 {
+  font-size: 40px;
+  font-weight: normal;
+  text-align: center;
+
+}
+
+form {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+
+}
+
+form label {
+  color: #312e2e;
+  font-size: 30px;
+}
+
+form div {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: self-start;
+  margin-bottom: 20px;
+}
+
+form input {
+  width: 100%;
+  height: 40px; /* Adjust the height as needed */
+  border: none;
+  border-radius: 5px;
+}
+
+form textarea {
+  width: 100%;
+  height: 100px;
+  resize: none;
+}
+
+.contact-button {
+  background-color: #901C1C;
+  border-radius: 5px;
+  width: 170px;
+height: 69px;
+flex-shrink: 0;
+color: #FFF;
+
+cursor: pointer;
+
+text-align: center;
+font-size: 18px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
 }
 
 * {
@@ -327,135 +453,39 @@ line-height: normal;
 
 .filtre-liste {
   position: absolute;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   top: 0;
   left: 80px;
   z-index: 100;
   width: 170px;
-  height: 69px;
+}
+
+#filtre-select {
+  width: 100%;
+  padding: 10px;
   border: none;
   border-radius: 5px;
   color: white;
   background-color: #901c1c;
   cursor: pointer;
-  height: auto;
+  appearance: none; /* Remove default arrow in Firefox */
 }
 
-.filtre-liste button {
+/* #filtre-select:hover {
+  background-color: white;
+  color: #901c1c;
+} */
+
+/* Style for options */
+#filtre-select option {
   background-color: #901c1c;
   color: white;
-  border: none;
-  cursor: pointer;
 }
 
-.filtre-liste-active {
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-  padding: 10px;
-}
-
-.filtre-liste-inactive {
-  display: none;
-  text-align: left;
-  width: 100%;
-  padding: 10px;
-}
-
-.filtre-liste-inactive:hover {
+#filtre-select option:hover {
   background-color: white;
   color: #901c1c;
 }
 
-.filtre-liste .ouverture {
-  display: block;
-}
-
-.filtre-liste .option1 {
-  border-top: white solid 1px;
-  border-bottom: white solid 1px;
-  padding: 10px;
-}
 
 
 
-.modal {
-  border-radius: 5px;
-  background-color: #db8876;
-  width: 30%;
-  height: 95vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 20px;
-  margin: auto;
-}
-
-.modal header {
-  justify-content: space-between;
-  width: 100%;
-}
-
-.modal header img {
-  cursor: pointer;
-}
-
-.modal header h2 {
-  font-size: 50px;
-  font-weight: normal;
-  text-align: center;
-}
-
-form {
-  display: flex;
-  width: 100%;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-form label {
-  color: #312e2e;
-  font-size: 36px;
-}
-
-form div {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  align-items: self-start;
-  margin-bottom: 26px;
-}
-
-form input {
-  width: 100%;
-  height: 68px;
-  border: none;
-  border-radius: 5px;
-}
-
-form textarea {
-  width: 100%;
-  height: 100px;
-  resize: none;
-}
-
-.contact-button {
-  background-color: #901C1C;
-  border-radius: 5px;
-  width: 170px;
-height: 69px;
-flex-shrink: 0;
-color: #FFF;
-
-cursor: pointer;
-
-text-align: center;
-font-family: DM Sans;
-font-size: 18px;
-font-style: normal;
-font-weight: 700;
-line-height: normal;
-}

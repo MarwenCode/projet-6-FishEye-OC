@@ -45,7 +45,8 @@ export function photographerTemplate(data) {
     photographerMedia,
     mediaContainer,
     encartLikesContainer,
-    photographerPrice
+    photographerPrice,
+    filtreSelect
   ) => {
     photographerMedia.forEach((media) => {
       const mediaFactory = new MediaFactory(media, media.photographerId);
@@ -54,6 +55,7 @@ export function photographerTemplate(data) {
     });
 
     const encartLikes = new MediaFactory(photographerMedia);
+    console.log(encartLikes)
     encartLikesContainer.innerHTML =
       encartLikes.renderEncart(photographerPrice);
 
@@ -68,6 +70,12 @@ export function photographerTemplate(data) {
         );
         showLightBox(index, photographerMedia);
       }
+
+
+ 
+      
+
+
     });
 
     // Add the event listener for like button
@@ -84,6 +92,12 @@ export function photographerTemplate(data) {
         }
       })
     );
+
+      // Add event listener for the select element
+  filtreSelect.addEventListener("input", () => {
+    filterMedia(photographerMedia, mediaContainer);
+    console.log("test");
+  });
   };
 
   //contact form
@@ -105,7 +119,14 @@ export function photographerTemplate(data) {
   btn.addEventListener("click", displayModal);
 
   const closeModal = () => {
+   
     modalContact.style.display = "none";
+
+
+    // document.body.removeChild(modalContact); // Remove the modal from the DOM
+
+ 
+   
   };
 
   const close = document.querySelector(".close");
@@ -124,9 +145,10 @@ export function photographerTemplate(data) {
           mail: email.value,
           msg: message.value,
         };
-        alert(`Bonjour ${user.prenom}, votre message a bien été envoyé.`);
+        // alert(`Bonjour ${user.prenom}, votre message a bien été envoyé.`);
 
         console.log(`Bonjour ${user.prenom}, votre message a bien été envoyé.`);
+        console.log(user)
         username.value = "";
         surname.value = "";
         email.value = "";
@@ -150,11 +172,12 @@ export function photographerTemplate(data) {
     createLightBox(clickedMedia, photographerMedia, index);
   };
 
+
+
+
   return { name, picture, getUserCardDOM, displayMedia, showLightBox };
 }
 
-// Function to add likes
-// Function to add likes
 // Function to add likes
 const addLikes = (likeBtn) => {
   // Find the corresponding media item
@@ -202,3 +225,74 @@ const allLikesEncart = () => {
     totalLikesElement.textContent = totalLikes;
   }
 };
+
+
+//filter with likes / date / title
+
+const filterMedia = (photographerMedia, mediaContainer) => {
+  const searchInput = document.getElementById('filtre-select').value.toLowerCase();
+
+  console.log('Search Input:', searchInput);
+
+  if (searchInput === "popularite") {  
+    console.log('Selected "Popularité"');
+    // Sort by likes (popularity)
+    photographerMedia.sort((a, b) => b.likes - a.likes);
+  } 
+  else if (searchInput === "titre") {
+    console.log("selected title");
+    // Sort by title
+    photographerMedia.sort((a, b) => {
+      return a.title.localeCompare(b.title)
+    })
+  }
+  // Add additional conditions for other filtering options (date, title) if needed
+  else if (searchInput === "date") {
+    console.log("selected date");
+    // Sort by date
+    photographerMedia.sort((a, b) => new Date(a.date) - new Date(b.date));
+  }
+
+  // Clear existing mediaContainer before re-rendering
+  mediaContainer.innerHTML = "";
+
+  // Re-render the media based on the sorted array
+  photographerMedia.forEach((media) => {
+    const mediaFactory = new MediaFactory(media, media.photographerId);
+    mediaContainer.innerHTML += mediaFactory.renderMedia();
+  });
+};
+
+
+
+
+
+// function positionModal() {
+//   const modalContact = document.querySelector('.modal_contact');
+//   if (!modalContact) return; // Check if the element exists
+
+//   const scrollTop = window.scrollY || document.documentElement.scrollTop;
+//   const windowHeight = window.innerHeight;
+//   const modalHeight = modalContact.offsetHeight;
+
+//   const topPosition = scrollTop + (windowHeight - modalHeight) / 2;
+
+//   modalContact.style.top = `${topPosition}px`;
+// }
+
+// // Call this function after the modal is added to the DOM
+// positionModal();
+
+
+// document.addEventListener('DOMContentLoaded', function () {
+//   // Your script here
+//   positionModal(); // Call this after adding the modal to the DOM
+// });
+
+
+
+
+
+
+
+

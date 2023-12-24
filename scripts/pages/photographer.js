@@ -32,7 +32,8 @@ console.log("UserID:", userId);
     // Afficher les médias du photographe
     const mediaContainer = document.querySelector(".photographe_medias");
     const encartLikes = document.querySelector(".encartLikes");
-   
+    const filtreSelect = document.getElementById("filtre-select"); // Corrected selector
+   console.log(filtreSelect)
 
     const photographerMedia = jsonResponse.media.filter(
       (media) => media.photographerId == userId
@@ -54,20 +55,12 @@ console.log("UserID:", userId);
       mediaContainer,
       encartLikes,
       photographerPrice,
+      filtreSelect
       
     );
 
 
-    //add likes
-  //   const likeBtn = document.querySelector(".heart-button")
-  //  likeBtn.addEventListener("click", addLikes);
-
-  //  const addLikes = () => {
-  //   const indexMedia =
-  //  }
-
-   
-
+ 
 
   } else {
     console.error("Aucun photographe trouvé avec l'ID : ", userId);
