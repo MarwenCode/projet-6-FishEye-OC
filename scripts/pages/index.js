@@ -42,9 +42,9 @@ const displayProfiles = (profiles) => {
 };
 
 // Afficher un seul profil
-const displaySingleProfile = (profile) => {
-  console.log(profile);
-};
+// const displaySingleProfile = (profile) => {
+//   console.log(profile);
+// };
 
 fetchData();
 

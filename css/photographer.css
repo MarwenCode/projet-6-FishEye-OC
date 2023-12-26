@@ -2,12 +2,12 @@
   display: none;
 
   /* transform: translate(0%, -320%); */
-  transform: translate(0%, -280%);
+  /* transform: translate(0%, -280%); */
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   position:fixed; 
-  width: 60%;
+  width: 100%;
   height: 96vh;
   z-index: 1000;
   border:none;
@@ -18,7 +18,7 @@
   /* margin-top: -150px; */
 
 
-  /* background-color: rgba(255, 255, 255, 0.9); */
+  background-color: rgba(255, 255, 255, 0.9);
   /* Add other styles as needed */
 
 
@@ -42,9 +42,13 @@
 .modal {
   border-radius: 5px;
   background-color: #db8876;
-  width: 60%;
+  width: 40%;
   height: 100vh;
   border: none;
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 
   position:fixed;
   display: flex;
@@ -322,6 +326,11 @@ width: 15%;
   color: #901c1c;
   width: 21px;
   height: 24px;
+  z-index: 999;
+
+  position: absolute;
+  margin-left: -10px;
+ 
 
 
 }
@@ -352,8 +361,12 @@ line-height: normal;
   justify-content: space-around;
   margin-bottom: 2%;
   position: fixed;
+  /* top:20px; */
+  bottom: -29px;
 
-  z-index: 1;
+
+
+  z-index: 100;
  
 
  

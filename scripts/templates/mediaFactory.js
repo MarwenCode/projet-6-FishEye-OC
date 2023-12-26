@@ -16,7 +16,7 @@ export class MediaFactory {
     const imagePath = `../../assets/photos/${this.photographerID}/${this.media.image}`;
     return `
       <div class="media-element">
-        <div>
+        <div class="image-element">
           <img src="${imagePath}" alt="${this.media.title}" aria-label="${this.media.title}">
         </div>
         <div class="info">
@@ -26,7 +26,7 @@ export class MediaFactory {
             <span role="img" aria-label="likes"><i class="heart-button fas fa-heart"></i></span>
           </div>
         </div>
-      </div>
+     
     `;
   }
 

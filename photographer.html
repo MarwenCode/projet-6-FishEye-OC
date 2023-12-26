@@ -12,8 +12,11 @@
 </head>
 <body>
   <header>
-    <img src="assets/images/logo.png" class="logo"   alt="Photographer image"  />
+    <a href="index.html">
+      <img src="assets/images/logo.png" class="logo" alt="Photographer image" />
+    </a>
   </header>
+  
   <main id="main">
     <div class="photograph-header">
       <article>
@@ -41,8 +44,8 @@
     <div class="photographe_medias" role="region" aria-label="Contenu multimédia du photographe"></div>
   </main>
 
-  <div id="contact_modal" role="dialog" aria-labelledby="contact-modal-title">
-    <dialog class="modal">
+  <dialog id="contact_modal" role="dialog" aria-labelledby="contact-modal-title">
+    <div class="modal">
       <header>
         <h2 id="contact-modal-title">Contactez-moi</h2>
         <img class="close" src="assets/icons/close.svg"  aria-label="Fermer la fenêtre modale"  alt="Fermer modale" />
@@ -66,8 +69,8 @@
         </div>
         <button class="contact-button" type="submit" aria-label="Envoyer le message">Envoyer</button>
       </form>
-    </dialog>
-  </div>
+    </div>
+  </dialog>
 
   <script type="module" src="/scripts/pages/photographer.js"></script>
   <script type="module" src="/scripts/utils/contactForm.js"></script>

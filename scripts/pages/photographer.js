@@ -1,7 +1,4 @@
-// Récupérer l'id de l'utilisateur
-
 // photographer.js
-import { MediaFactory } from "../templates/mediaFactory.js";
 import { photographerTemplate } from "../templates/photographer.js";
 
 // Récupérer l'id de l'utilisateur
@@ -23,6 +20,7 @@ console.log("UserID:", userId);
   if (photographerById) {
     // Afficher les données du photographe avec le template
     const photographerCard = photographerTemplate(photographerById);
+    console.log(photographerCard)
 
     // Ajouter la carte du photographe au DOM
     const profileContainer = document.querySelector(".photograph-header");
