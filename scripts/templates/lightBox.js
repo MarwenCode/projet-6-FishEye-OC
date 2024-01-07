@@ -36,7 +36,7 @@ export const createLightBox = (clickedMedia, photographerMedia, currentIndex) =>
     modal.style.backgroundColor = "transparent";
   
     // Set styles for close button
-    imgCloseBtn.src = "assets/icons/close-btn.svg";
+    imgCloseBtn.src = "assets/images/icons/close-btn.svg";
     imgCloseBtn.alt = "Close";
     imgCloseBtn.style.cursor = "pointer";
     imgCloseBtn.style.position = "absolute";
@@ -45,8 +45,8 @@ export const createLightBox = (clickedMedia, photographerMedia, currentIndex) =>
     imgCloseBtn.setAttribute("aria-label", "Fermer la fenêtre modale");
   
     // Set styles for arrows
-    nextArrow.src = "assets/icons/next.svg";
-    backArrow.src = "assets/icons/back.svg";
+    nextArrow.src = "assets/images/icons/next.svg";
+    backArrow.src = "assets/images/icons/back.svg";
     nextArrow.setAttribute("aria-label", "Passer à la photo suivante");
 backArrow.setAttribute("aria-label", "Revenir à la photo précédente");
 
@@ -65,8 +65,9 @@ backArrow.setAttribute("aria-label", "Revenir à la photo précédente");
       media.style.width = "100%";
       media.style.height = "60%";
       media.style.cursor = "pointer";
-      media.style.aspectRatio = "2/3";
+      media.style.aspectRatio = "2/2";
       media.style.objectFit = "cover";
+      media.style.zIndex = 999;
     } else if (clickedMedia.video) {
       media = document.createElement("video");
       media.src = `../../assets/photos/${clickedMedia.photographerId}/${clickedMedia.video}`;
@@ -111,7 +112,7 @@ backArrow.setAttribute("aria-label", "Revenir à la photo précédente");
   
     // Add event listener to the next arrow
     nextArrow.addEventListener("click", () => {
-      clearContent(); // Clear previous content
+      clearContent(); 
       let nextIndex;
   
       if (currentIndex === photographerMedia.length - 1) {
@@ -126,8 +127,7 @@ backArrow.setAttribute("aria-label", "Revenir à la photo précédente");
   
     // Add event listener to the back arrow
     backArrow.addEventListener("click", () => {
-      clearContent(); // Clear previous content
-      let prevIndex;
+      clearContent(); 
   
       if (currentIndex === 0) {
         prevIndex = photographerMedia.length - 1;
@@ -139,8 +139,6 @@ backArrow.setAttribute("aria-label", "Revenir à la photo précédente");
       createLightBox(prevImage, photographerMedia, prevIndex);
     });
 
-      // Add event listener for keyboard navigation
-   // Add event listener for keyboard navigation
 
 
 
@@ -171,8 +169,7 @@ document.addEventListener("keydown", function (event) {
 
   // Arrow function to navigate to the previous image
   const navigateToPrevious = () => {
-    clearContent(); // Clear previous content
-    let prevIndex;
+    clearContent(); 
 
     if (currentIndex === 0) {
       prevIndex = photographerMedia.length - 1;
@@ -185,18 +182,6 @@ document.addEventListener("keydown", function (event) {
   };
 
 
-//   document.addEventListener("keydown", handleKeyPress);
-
-  // Function to handle keyboard events
-//   const handleKeyPress = (event) => {
-//     if (event.key === "Escape") {
-//       clearContent();
-//     } else if (event.key === "ArrowRight") {
-//       navigateToNext();
-//     } else if (event.key === "ArrowLeft") {
-//       navigateToPrevious();
-//     }
-//   }
 
 
     

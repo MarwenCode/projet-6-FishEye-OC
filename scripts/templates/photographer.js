@@ -41,21 +41,14 @@ export function photographerTemplate(data) {
     return article;
   }
 
-  const displayMedia = (
-    photographerMedia,
-    mediaContainer,
-    encartLikesContainer,
-    photographerPrice,
-    filtreSelect
-  ) => {
+  const displayMedia = (photographerMedia, mediaContainer, encartLikesContainer, photographerPrice, filtreSelect) => {
     photographerMedia.forEach((media) => {
       const mediaFactory = new MediaFactory(media, media.photographerId);
       mediaContainer.innerHTML += mediaFactory.renderMedia();
     });
 
     const encartLikes = new MediaFactory(photographerMedia);
-    encartLikesContainer.innerHTML =
-      encartLikes.renderEncart(photographerPrice);
+    encartLikesContainer.innerHTML = encartLikes.renderEncart(photographerPrice);
 
     // Add event listener for the select element
     filtreSelect.addEventListener("input", () => {
@@ -63,12 +56,12 @@ export function photographerTemplate(data) {
       console.log("test");
     });
 
-    // Attach a single event listener for both lightbox and like buttons using event delegation
+
 
     mediaContainer.addEventListener("click", (event) => {
       const likeButton = event.target.closest(".heart-button");
       const mediaElement = event.target.closest(".media-element");
-    
+
       if (likeButton) {
         // event.stopPropagation();
         addLikes(likeButton);
@@ -77,7 +70,7 @@ export function photographerTemplate(data) {
         showLightBox(index, photographerMedia);
       }
     });
-    
+
 
 
 
@@ -148,7 +141,6 @@ export function photographerTemplate(data) {
   submitForm();
 
   ///show LightBox
-  ///show LightBox
   const showLightBox = (index, photographerMedia) => {
     // Get the clicked media
     const clickedMedia = photographerMedia[index];
@@ -161,7 +153,6 @@ export function photographerTemplate(data) {
   return { name, picture, getUserCardDOM, displayMedia, showLightBox };
 }
 
-// Function to add likes
 // Function to add likes
 const addLikes = (likeBtn) => {
   // Find the corresponding media item
@@ -217,9 +208,7 @@ const allLikesEncart = () => {
 //filter with likes / date / title
 
 const filterMedia = (photographerMedia, mediaContainer) => {
-  const searchInput = document
-    .getElementById("filtre-select")
-    .value.toLowerCase();
+  const searchInput = document.getElementById("filtre-select").value.toLowerCase();
 
   console.log("Search Input:", searchInput);
 
@@ -250,3 +239,5 @@ const filterMedia = (photographerMedia, mediaContainer) => {
     mediaContainer.innerHTML += mediaFactory.renderMedia();
   });
 };
+
+

@@ -33,15 +33,15 @@ export class MediaFactory {
   renderVideo() {
     const videoPath = `../../assets/photos/${this.photographerID}/${this.media.video}`;
     return `
-       <div class="media-element">
-        <div>
+    <div class="media-element">
+    <div class="image-element">
           <video src="${videoPath}" controls aria-label="${this.media.title}"></video>
         </div>
         <div class="info">
           <h2>${this.media.title}</h2>
           <div class="likes">
             <p>${this.media.likes}</p>
-            <span role="img" aria-label="likes"><i class="fas fa-heart"></i></span>
+            <span role="img" aria-label="likes"><i class="heart-button fas fa-heart"></i></span>
           </div>
         </div>
       </div>

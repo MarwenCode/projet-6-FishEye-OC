@@ -12,21 +12,47 @@ const fetchData = async () => {
   }
 };
 
-// Afficher les profils
+/// Afficher les profils
 const displayProfiles = (profiles) => {
   profiles.forEach((profile) => {
     const profileElement = document.createElement("article");
-    profileElement.innerHTML = `
-      <img src="./assets/photos/Photographers ID Photos/${profile.portrait}" alt="${profile.name}'s portrait">
-      <h2 class="photograph-name">${profile.name}</h2>
-      <p class="photograph-location">${profile.city}, ${profile.country}</p>
-      <p class="photograph-tagline">${profile.tagline}</p>
-      <p class="photograph-price">${profile.price}</p>
-    `;
 
+    // Create elements for profile details
+    const profileImage = document.createElement("img");
+    const profileName = document.createElement("h2");
+    const profileLocation = document.createElement("p");
+    const profileTagline = document.createElement("p");
+    const profilePrice = document.createElement("p");
+
+    // Set content and attributes for each element
+    profileImage.src = `./assets/photos/Photographers ID Photos/${profile.portrait}`;
+    profileImage.alt = `${profile.name}'s portrait`;
+
+    profileName.textContent = profile.name;
+    profileName.classList.add("photograph-name");
+
+    profileLocation.textContent = `${profile.city}, ${profile.country}`;
+    profileLocation.classList.add("photograph-location");
+
+    profileTagline.textContent = profile.tagline;
+    profileTagline.classList.add("photograph-tagline");
+
+    profilePrice.textContent = profile.price;
+    profilePrice.classList.add("photograph-price");
+
+    // Append elements to the profile container
+    profileElement.appendChild(profileImage);
+    profileElement.appendChild(profileName);
+    profileElement.appendChild(profileLocation);
+    profileElement.appendChild(profileTagline);
+    profileElement.appendChild(profilePrice);
+
+    // Set attributes for accessibility
     profileElement.dataset.id = profile.id;
     profileElement.classList.add("profileElement");
     profileElement.setAttribute("role", "listitem");
+    profileElement.setAttribute("tabindex", "0");
+    profileElement.setAttribute("aria-label", `${profile.name}'s profile. Location: ${profile.city}, ${profile.country}. Tagline: ${profile.tagline}. Price: ${profile.price} euros per day.`);
 
     // Ajouter un écouteur d'événements à chaque profil
     profileElement.addEventListener("click", () => {
@@ -34,17 +60,11 @@ const displayProfiles = (profiles) => {
       console.log(photographerId);
 
       window.location.href = `/photographer.html?id=${photographerId}`;
-      // Lancer la fonction fetchDataProfile()
+    
     });
 
     profilesContainer.appendChild(profileElement);
   });
 };
 
-// Afficher un seul profil
-// const displaySingleProfile = (profile) => {
-//   console.log(profile);
-// };
-
 fetchData();
-

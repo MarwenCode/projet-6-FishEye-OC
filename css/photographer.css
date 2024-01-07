@@ -1,43 +1,20 @@
 #contact_modal {
   display: none;
-
-  /* transform: translate(0%, -320%); */
-  /* transform: translate(0%, -280%); */
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  position:fixed; 
+  position: fixed;
   width: 100%;
   height: 96vh;
   z-index: 1000;
-  border:none;
-
-
-  /* transform: translate(-50%, -50%);  */
-
-  /* margin-top: -150px; */
-
+  border: none;
 
   background-color: rgba(255, 255, 255, 0.9);
-  /* Add other styles as needed */
 
-
-
-  /* position:fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); */
-  /* width: 100%;
-  height: 100%;
-  background-color: rgba(255, 255, 255, 0.9);
-  z-index: 1000; 
-  display: flex;
-  align-items: center;
-  justify-content: center; */
-
-
+  .filter {
+    z-index: -1;
+  }
 }
-
 
 .modal {
   border-radius: 5px;
@@ -50,32 +27,21 @@
   left: 50%;
   transform: translate(-50%, -50%);
 
-  position:fixed;
+  position: fixed;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
   padding: 10px;
   margin-top: -10px;
-  /* margin: auto; */
-
-
-
-  /* width: 30%;
-  background-color: #db8876;
-  border-radius: 5px;
-  padding: 10px; */
-
 
   height: auto;
-  max-height: 100%; /* Set a maximum height to prevent overflow */
-  /* overflow-y: auto; */
+  max-height: 100%;
 }
 
 .modal header {
   justify-content: space-between;
   width: 100%;
- 
 }
 
 .modal header img {
@@ -86,7 +52,6 @@
   font-size: 40px;
   font-weight: normal;
   text-align: center;
-
 }
 
 form {
@@ -94,7 +59,6 @@ form {
   width: 100%;
   flex-direction: column;
   align-items: flex-start;
-
 }
 
 form label {
@@ -112,7 +76,7 @@ form div {
 
 form input {
   width: 100%;
-  height: 40px; /* Adjust the height as needed */
+  height: 40px;
   border: none;
   border-radius: 5px;
 }
@@ -124,53 +88,41 @@ form textarea {
 }
 
 .contact-button {
-  background-color: #901C1C;
+  background-color: #901c1c;
   border-radius: 5px;
   width: 170px;
-height: 69px;
-flex-shrink: 0;
-color: #FFF;
+  height: 69px;
+  flex-shrink: 0;
+  color: #fff;
 
-cursor: pointer;
+  cursor: pointer;
 
-text-align: center;
-font-size: 18px;
-font-style: normal;
-font-weight: 700;
-line-height: normal;
+  text-align: center;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
 }
 
 * {
   /* box-shadow: 0 0 0 3px red inset; */
 }
 
-
 main {
   margin: 50px;
- 
-
-  
- 
-
 }
 
 .photograph-header {
   background-color: #fafafa;
   height: 300px;
   margin: 0 100px;
-
-
 }
 
 article {
   display: flex;
-  /* justify-content: center; */
   align-items: center;
-  /* flex-direction: block; */
   margin-top: 10px;
   width: 100%;
-
-
   justify-content: space-between;
 }
 
@@ -218,12 +170,11 @@ h5 {
 }
 
 .pic {
-  max-width: 20%;
-  border-radius: 50%;
-  object-fit: cover;
-  /* width: 200px; */
-  /* height: 200px; */
 
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+ 
 }
 
 .left-side p {
@@ -238,9 +189,7 @@ h5 {
 
 /* photgraphe media  */
 
-
 .photographe_medias {
-
   width: 100%;
   display: flex;
   flex-wrap: wrap;
@@ -256,16 +205,10 @@ h5 {
   flex-direction: column;
   align-items: center;
   text-align: center;
-
 }
-
 
 .media-element img,
 .media-element video {
-
-  /* max-width: 50%; 
-  aspect-ratio: 8/5; */
-
   width: 350px;
   height: 300px;
   flex-shrink: 0;
@@ -276,10 +219,6 @@ h5 {
 /* active */
 .media-element img.active,
 .media-element video.active {
-
-  /* max-width: 50%; 
-  aspect-ratio: 8/5; */
-
   width: 350px;
   height: 300px;
   flex-shrink: 0;
@@ -298,63 +237,41 @@ h5 {
 
 .info h2 {
   margin-left: -8px;
-
 }
 
 .likes {
   display: flex;
-/* align-items: center;
-justify-content: center; */
-
-margin-right: -10px;
-justify-content: space-around;
-width: 15%;
-
-
+  margin-right: -10px;
+  justify-content: space-around;
+  width: 15%;
 }
 
 .fas.fa-heart {
- 
   color: #901c1c;
   width: 21px;
   height: 24px;
-
-
 }
+
 .heart-button {
- 
   color: #901c1c;
   width: 21px;
   height: 24px;
-  z-index: 999;
-
   position: absolute;
   margin-left: -10px;
- 
-
-
 }
 
 .likes p {
- 
-  color: #901C1C;
-font-family: DM Sans;
-font-size: 19px;
-font-style: normal;
-font-weight: 500;
-line-height: normal;
- 
-  
- 
-
+  color: #901c1c;
+  font-family: DM Sans;
+  font-size: 19px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
 }
-
 
 /* encart likes */
 
 .encartLikes {
- 
- 
   width: 70%;
 
   align-items: center;
@@ -363,44 +280,32 @@ line-height: normal;
   position: fixed;
   /* top:20px; */
   bottom: -29px;
-
-
-
   z-index: 100;
- 
-
- 
-
 }
 
 .encart {
   margin-left: 106%;
   margin-top: 195px;
   height: 50px;
-flex-shrink: 0;
-
+  flex-shrink: 0;
 
   display: flex;
   width: 30%;
   justify-content: space-between;
-  background-color:#DB8876 ;
+  background-color: #db8876;
   align-items: center;
 
   color: #000;
 
-text-align: right;
-font-family: DM Sans;
-font-size: 24px;
-font-style: normal;
-font-weight: 500;
-line-height: normal;
-
-
+  text-align: right;
+  font-family: DM Sans;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
 }
 
-
 .encart h2 {
-
   width: 40%;
   color: #000;
 
@@ -411,14 +316,12 @@ line-height: normal;
   font-weight: 500;
   line-height: normal;
   margin-right: 10px;
-
 }
 
 .likestotal {
   width: 20%;
   display: flex;
   margin-left: 10px;
-
 
   color: #000;
 
@@ -430,32 +333,12 @@ line-height: normal;
   line-height: normal;
 }
 
-
-
-
-
-.totalLikes {
- 
-}
-
-.likes span  {
-  
-  /* margin-left: -90px;
-  margin-top: 2px; */
-
- 
-
-  
- 
-}
-
-
-
-
 /* Style for the filter container */
 .filtre {
   position: relative;
   margin-bottom: 58px;
+
+  margin-left: 5%;
 }
 
 .filtre-label {
@@ -468,7 +351,7 @@ line-height: normal;
   position: absolute;
   top: 0;
   left: 80px;
-  z-index: 100;
+  /* z-index: 100; */
   width: 170px;
 }
 
@@ -480,13 +363,8 @@ line-height: normal;
   color: white;
   background-color: #901c1c;
   cursor: pointer;
-  appearance: none; /* Remove default arrow in Firefox */
+  appearance: none;
 }
-
-/* #filtre-select:hover {
-  background-color: white;
-  color: #901c1c;
-} */
 
 /* Style for options */
 #filtre-select option {
@@ -499,6 +377,12 @@ line-height: normal;
   color: #901c1c;
 }
 
-
-
-
+#lightbox-title {
+  color: #901c1c;
+  font-family: DM Sans;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-top: -30px;
+}

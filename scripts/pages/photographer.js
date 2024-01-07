@@ -30,8 +30,8 @@ console.log("UserID:", userId);
     // Afficher les médias du photographe
     const mediaContainer = document.querySelector(".photographe_medias");
     const encartLikes = document.querySelector(".encartLikes");
-    const filtreSelect = document.getElementById("filtre-select"); // Corrected selector
-   console.log(filtreSelect)
+    const filtreSelect = document.getElementById("filtre-select"); 
+    console.log(filtreSelect);
 
     const photographerMedia = jsonResponse.media.filter(
       (media) => media.photographerId == userId
@@ -40,9 +40,7 @@ console.log("UserID:", userId);
     console.log(photographerMedia);
     console.log(mediaContainer);
 
-    // Append the mediaContainer to the DOM after displaying all media
 
-    // Clear the container before appending new content
     mediaContainer.innerHTML = "";
 
     // Get the photographer price
