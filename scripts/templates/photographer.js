@@ -57,7 +57,7 @@ export function photographerTemplate(data) {
     });
 
 
-
+// ouvrir le lightbox onclick
     mediaContainer.addEventListener("click", (event) => {
       const likeButton = event.target.closest(".heart-button");
       const mediaElement = event.target.closest(".media-element");
@@ -71,6 +71,21 @@ export function photographerTemplate(data) {
       }
     });
 
+   
+  //ouvrir le lightbox avec le clavier et liké un media
+    mediaContainer.addEventListener("keydown", (event) => {
+      if (event.key === "Enter") {
+        const likeButton = event.target.closest(".heart-button");
+        const mediaElement = event.target.closest(".media-element");
+    
+        if (likeButton) {
+          addLikes(likeButton);
+        } else if (mediaElement) {
+          const index = Array.from(mediaElement.parentNode.children).indexOf(mediaElement);
+          showLightBox(index, photographerMedia);
+        }
+      }
+    });
 
 
 
@@ -187,7 +202,7 @@ const addLikes = (likeBtn) => {
 
 // Function to update the total likes in the encartLikes container
 const allLikesEncart = () => {
-  const encartLikesContainer = document.querySelector(".encartLikes"); // Adjust the selector based on your HTML structure
+  const encartLikesContainer = document.querySelector(".encartLikes"); 
   const likeButtons = document.querySelectorAll(".heart-button");
 
   // Calculate the total likes
@@ -223,14 +238,13 @@ const filterMedia = (photographerMedia, mediaContainer) => {
       return a.title.localeCompare(b.title);
     });
   }
-  // Add additional conditions for other filtering options (date, title) if needed
+
   else if (searchInput === "date") {
     console.log("selected date");
     // Sort by date
     photographerMedia.sort((a, b) => new Date(a.date) - new Date(b.date));
   }
 
-  // Clear existing mediaContainer before re-rendering
   mediaContainer.innerHTML = "";
 
   // Re-render the media based on the sorted array

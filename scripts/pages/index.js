@@ -63,6 +63,15 @@ const displayProfiles = (profiles) => {
     
     });
 
+
+    // Ajouter un gestionnaire d'événements "keydown" à chaque image
+    profileElement    .addEventListener("keydown", (event) => {
+  if (event.key === "Enter") {
+    const photographerId = profileElement.dataset.id;
+    window.location.href = `/photographer.html?id=${photographerId}`;
+  }
+});
+
     profilesContainer.appendChild(profileElement);
   });
 };

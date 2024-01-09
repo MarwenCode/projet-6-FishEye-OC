@@ -140,8 +140,7 @@ backArrow.setAttribute("aria-label", "Revenir à la photo précédente");
       createLightBox(prevImage, photographerMedia, prevIndex);
     });
 
-      // Add event listener for keyboard navigation
-   // Add event listener for keyboard navigation
+  
 
 
 
@@ -157,7 +156,7 @@ document.addEventListener("keydown", function (event) {
   });
 
   const navigateToNext = () => {
-    clearContent(); // Clear previous content
+    clearContent(); 
     let nextIndex;
 
     if (currentIndex === photographerMedia.length - 1) {
@@ -172,7 +171,7 @@ document.addEventListener("keydown", function (event) {
 
   // Arrow function to navigate to the previous image
   const navigateToPrevious = () => {
-    clearContent(); // Clear previous content
+    clearContent();
     let prevIndex;
 
     if (currentIndex === 0) {
@@ -186,21 +185,12 @@ document.addEventListener("keydown", function (event) {
   };
 
 
-//   document.addEventListener("keydown", handleKeyPress);
 
-  // Function to handle keyboard events
-//   const handleKeyPress = (event) => {
-//     if (event.key === "Escape") {
-//       clearContent();
-//     } else if (event.key === "ArrowRight") {
-//       navigateToNext();
-//     } else if (event.key === "ArrowLeft") {
-//       navigateToPrevious();
-//     }
-//   }
 
 
     
   };
   
   
+
+
